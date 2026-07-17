@@ -2,7 +2,7 @@
   const UNIT_IDS = ["h1", "h2", "m1", "m2", "s1", "s2"];
   const units = {};
   const values = {};
-  let use24Hour = true;
+  const use24Hour = false;
 
   function buildUnit(el, initialValue) {
     el.innerHTML = `
@@ -125,21 +125,6 @@
   function start() {
     init();
     scheduleNextTick();
-
-    const modeToggle = document.getElementById("modeToggle");
-    modeToggle.textContent = use24Hour ? "24H" : "12H";
-    modeToggle.addEventListener("click", () => {
-      use24Hour = !use24Hour;
-      modeToggle.textContent = use24Hour ? "24H" : "12H";
-      const now = new Date();
-      const parts = getTimeParts(now);
-      UNIT_IDS.forEach((id) => {
-        values[id] = parts[id];
-        units[id].topStatic.textContent = parts[id];
-        units[id].bottomStatic.textContent = parts[id];
-      });
-      updateMeta(now);
-    });
   }
 
   if (document.readyState === "loading") {
