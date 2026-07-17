@@ -35,8 +35,8 @@ Then visit `http://localhost:8000`.
 - **Size**: the clock scales automatically with the viewport via `--digit-size` in
   `style.css` (a `clamp()` value) — no JS changes needed.
 - **Flip speed**: change `--flip-duration` in `style.css`.
-- **12/24-hour format**: toggled live with the button in the bottom bar; defaults to
-  24-hour on load (edit `use24Hour` in `script.js` to change the default).
+- **12/24-hour format**: set to 12-hour by default. To switch to 24-hour, change
+  `const use24Hour = false;` to `true` in `script.js`.
 
 ## Browser support
 
